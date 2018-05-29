@@ -23,6 +23,25 @@
 \end{itemize}
 \end{frame}
 
+The easiest,
+most useless,
+code review is the one that goes line by line,
+nearly context free,
+and comments on style or best practices violations.
+Examples are "there is a missing space before the +"
+and "this expression is too deeply nested".
+
+The more self-aware variant of this will precede the comment
+with a "nit" or "nitpick".
+Nitpicks are not useful,
+but are easy to give.
+
+There is no need for humans to enforce that.
+Computers can check for spaces.
+Computers can check for nesting levels of expressions.
+Computers can identify the :code:`for/append`
+pattern and suggest a list comprehension.
+
 \begin{frame}
 \frametitle{Why?}
 \begin{itemize}
@@ -30,6 +49,29 @@
 \item Feeling useful
 \end{itemize}
 \end{frame}
+
+So why do people do that?
+Some of the more toxic variety is the
+"speed bump" motivation.
+This developer wants,
+for whatever reason,
+to delay the PR.
+Maybe they think the underlying feature is a bad idea.
+Maybe they had a fight with the submitting developer.
+Regardless,
+this is a pretty toxic motivation,
+and we are better off being charitable.
+
+The more common motivation is feeling useful.
+Often new developers,
+or ones with little experience,
+or ones with imposter syndrome,
+want to make sure they count as "being useful".
+The mindless make-work of "point out all nits"
+is visible,
+and is guaranteed to finish successfully in a well-known amount of time.
+While this motivation is not toxic per-se,
+it is definitely not a good sign!
 
 \begin{frame}
 \frametitle{Why not?}
