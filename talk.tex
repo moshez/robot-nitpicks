@@ -81,27 +81,41 @@ it is definitely not a good sign!
 \end{itemize}
 \end{frame}
 
+It is important to remove the ability to use the nitpick as a crutch.
+This will force the developer to recognize they are in over their head,
+and need help.
+Good teams help each other.
+The team recognition that someone needs help is valuable.
+They can be paired up with a mentor,
+or use pair programming
+or figure out other ways to get them up to speed.
+
+\begin{frame}
+\frametitle{Nits}
+A taxonomy.
+\end{frame}
+
+Nits come in all shapes and sizes.
+Since this is a talk about how to get robots to do them,
+it is important to be clear them.
+What we have not clarified properly to ourselves
+is very hard to teach a program to do.
+So the discussion,
+nitpicky as it seems,
+is critical to finding solutions.
+
 \begin{frame}
 \frametitle{Coding Style}
-Cite chapter-verse,
-comment.
+Cite chapter and verse.
 \end{frame}
 
-\begin{frame}
-\frametitle{Consistency}
-Compare two places,
-ask why.
-\end{frame}
-
-\begin{frame}
-\frametitle{Best Practices}
-Plethora to pick from!
-\end{frame}
-
-\begin{frame}
-\frametitle{Local Practices}
-Especially annoying to new people.
-\end{frame}
+The classic nitpick is the coding style nitpick.
+It does not matter where the style comes from --
+official style,
+one of the many guides published by companies
+or even a house style.
+This nitpick enforces "Section 3, bullet 2"
+of the coding style guidelines.
 
 \begin{frame}
 \frametitle{Example -- Line length}
@@ -113,12 +127,55 @@ Especially annoying to new people.
 \end{itemize}
 \end{frame}
 
+The ur-example is the line length.
+Presumably the team has already decided on a specific max length.
+Regardless of which length,
+this comment is literally just counting characters.
+Probably not manually, either --
+just letting an editor tool count them.
+It adds nothing useful to the discussion.
+
+\begin{frame}
+\frametitle{Consistency}
+Compare two places,
+ask why.
+\end{frame}
+
+Why did you choose to address X here this way,
+but then address X there this other way?
+This is inconsistent.
+Especially annoying if the places are far apart,
+and the need for consistency is somewhat irrelevant.
+
 \begin{frame}[fragile]
 \frametitle{Example -- Literals or constructors}
 \begin{itemize}
 \item \verb|{}| vs \verb|dict()|
 \item Paint the bikeshed fluourescent green
 \end{itemize}
+\end{frame}
+
+Either there is a specific house style asking for one or the other,
+or there is not.
+If there is, see previous example.
+In the more common case where there is none,
+asking for consistency is not useful.
+Maybe in one place \verb|dict()| is more useful
+(for example, it is supposed to look symmetric to something else)
+whereas in another place,
+the slight speed-up from using \verb|{}| is worth it.
+If there is a specific overriding concern with one or the other,
+raise it.
+Otherwise, do not worry.
+
+\begin{frame}
+\frametitle{Best Practices}
+Plethora to pick from!
+\end{frame}
+
+\begin{frame}
+\frametitle{Local Practices}
+Especially annoying to new people.
 \end{frame}
 
 \begin{frame}
