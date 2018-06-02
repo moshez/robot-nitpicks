@@ -218,10 +218,37 @@ so that it can be available to automated analysis."
 Easy to miss exceptions!
 \end{frame}
 
+Humans,
+try as they might,
+are not perfectly consistent.
+In a long pull request,
+or several pull requests,
+it is easy to miss something.
+A rule like
+"double quotes for user-facing strings,
+single quotes for internal ones"
+is unbearably easy to violate in one out of a hundred times.
+When both the one writing the pull request,
+and the one reviewing it,
+are humans,
+eventually exceptions to all "always do this"
+rules will find their way into the code base.
+
 \begin{frame}
 \frametitle{Humans get tired}
 "I've done most files in this PR."
 \end{frame}
+
+Worse,
+humans get *worse* at this.
+At 5pm,
+after a long day of reviewing PRs,
+it is easy to get distracted.
+It is easy to skip the last couple of files
+in the diff,
+and to hit the big approve button.
+
+
 
 \begin{frame}
 \frametitle{Delay tactics}
