@@ -319,16 +319,58 @@ and tried to feel like they were moving things along".
 Make the linter reflect current consensus.
 \end{frame}
 
+Configuring a linter should not be a soapbox.
+Reflect current consensus on the team.
+Note that is *not* the same as
+reflecting *current status* of code.
+But if people think something is good,
+the linter should reflect it.
+
 \begin{frame}
 \frametitle{Linter plugin}
 If the linter doesn't do something,
 implement it.
 \end{frame}
 
+Modern Python linters have the ability to execute plugins.
+Flake8 plugins are usually the easiest,
+with an entrypoint-based API to set them up.
+This means easy integration with :code:`tox`,
+where often the only thing needed for another plugin is to
+add it to the list of dependencies.
+
+This has been so popular,
+that many "linters" do not even bother with
+a command line,
+and declare their public interfce to be flake8 plugins.
+As a good example for such a plugin,
+is :code:`ebb-lint`.
+It also shows the modern approach to linting,
+with fewer knobs.
+The only way to change settings
+or to disable checks is to fork
+and name it something else.
+This is exactly the right amount of difficulty
+needed to be a useful barrier to entry.
+
+If your local team needs a different set of practices that badly,
+have a name-of-team-lint package published to either PyPI
+or a local repository
+that encodes those practices.
+
 \begin{frame}
 \frametitle{Ad-hoc programs}
 Just write a little script to check for copyright notices.
 \end{frame}
+
+Sometimes the easiest thing is to just write a new utility.
+Especially for things that do not translate well to linting,
+such as overall structural issues
+(every file in :code:`resources` should correspond to
+a file in :code:`models`),
+it is often easier to implement the logic in dedicated Python programs.
+Python programming is fun!
+Again, upload the package to PyPI or a private repository.
 
 \begin{frame}
 \frametitle{CI intergration}
