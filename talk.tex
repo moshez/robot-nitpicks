@@ -377,11 +377,43 @@ Again, upload the package to PyPI or a private repository.
 Automatic CI failure blocking merge on Lint errors.
 \end{frame}
 
+The easiest way to let robots "code review"
+is to use Continuous Integration.
+Hopefully,
+there is already an existing set-up,
+if only to run some tests on the code.
+If not,
+it is easy to get it for cheap or even free --
+Travis-CI, CircleCI, GitLab CI, Buildbot
+or even Jenkins,
+there are plenty of options.
+The trick is to set-up "pre-merge"
+builds,
+and to enforce,
+in whatever development flow system is being used,
+a "no merge on red"
+policy.
+Adding the linting run to this should be a straightforward exercise.
+
+
 \begin{frame}
 \frametitle{Supporting legacy with diff}
 Only run lint on files in diff
 (or only fail on lint errors in diff)
 \end{frame}
+
+One way to avoid needing to revisit history when adding a new rule
+is to only run the linter on diffs.
+This does require some co-operation between the CI system
+and the linter,
+but usually can be achieved in a decent way.
+This is especially true if the compromise position of
+"if you touch it, you buy it"
+is adopted:
+when touching a file,
+bring all of it up to date.
+This requires files to be small,
+which is probably advisable anyway.
 
 \begin{frame}
 \frametitle{Supporting legacy with white lists}
