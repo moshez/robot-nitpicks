@@ -421,11 +421,41 @@ Keep list of current failures,
 ignore "known" failures.
 \end{frame}
 
+Another way of supporting legacy is to have a "white list"
+of failure messages
+(for reliablity,
+best to keep it kind of message, file and number of those,
+and avoid precise line numbers).
+Care must be taken to make it easy to *remove* failures
+from the white list when possible,
+but make it slightly harder to add failures to the white-list.
+This can be as simple as a commit-approval-bot that
+auto-approves any removal from the white list,
+but asks one of a specific list to approve addition to it.
+
 \begin{frame}
 \frametitle{Simple rule}
 If CI doesn't care,
 the humans don't care!
 \end{frame}
+
+Regardless of how you implement lint,
+"good enough is good enough".
+Have a simple rule:
+never nitpick if the CI is green
+(if the CI is not green,
+the only nitpick needs to be
+"the CI is not green").
+If a nit is important enough,
+and violated often enough,
+add it to the linter.
+Ideally, changes to linter configuration are co-versioned
+with the code,
+and discussed using the same flow that code changes are discussed:
+pull requests,
+technical designs,
+Jira tickets
+or any other methodology the team decided to use to evolve the code base.
 
 \begin{frame}
 \frametitle{Summary}
@@ -434,5 +464,19 @@ the humans don't care!
 \item Use that, don't fight that
 \end{itemize}
 \end{frame}
+
+Humans are good at *deciding*.
+Humans are good at writing tools.
+Humans are terrible at being consistent,
+avoiding mistakes,
+or  not having emotions.
+If you work with the strengths humans have,
+and allow for our human frailty,
+you will have a happier team
+full of happier human people.
+
+If you ever hire Vulcans or robots,
+please ignore everything I have said.
+I only know how to work well with humans.
 
 \end{document}
