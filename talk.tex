@@ -107,6 +107,7 @@ is critical to finding solutions.
 \begin{frame}
 \frametitle{Coding Style}
 Cite chapter and verse.
+
 \end{frame}
 
 The classic nitpick is the coding style nitpick.
@@ -116,6 +117,21 @@ one of the many guides published by companies
 or even a house style.
 This nitpick enforces "Section 3, bullet 2"
 of the coding style guidelines.
+
+\begin{frame}[fragile]
+\frametitle{Coding Style nit}
+This violates PEP-8, "Whitespace":"Other recommendations".
+
+\begin{lstlisting}
+y = x * 2 - 1
+\end{lstlisting}
+\end{frame}
+
+An example is one of the most obscure whitespace recommendations in PEP-8.
+This is especially pernicious,
+since most coding styles start with "PEP-8, with these additions
+and these modifications".
+
 
 \begin{frame}
 \frametitle{Example -- Line length}
@@ -146,6 +162,18 @@ but then address X there this other way?
 This is inconsistent.
 Especially annoying if the places are far apart,
 and the need for consistency is somewhat irrelevant.
+
+\begin{frame}[fragile]
+\frametitle{Consistency nit}
+
+\begin{lstlisting}
+def frob(thing, amount, frequency):
+    pass # ...
+
+def tweak(thing, frequency, amount):
+    pass # ...
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Example -- Literals or constructors}
@@ -319,6 +347,16 @@ and tried to feel like they were moving things along".
 Make the linter reflect current consensus.
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Configuring linters: Example}
+
+\begin{lstlisting}
+[flake8]
+ignore = D203
+\end{lstlisting}
+
+\end{frame}
+
 Configuring a linter should not be a soapbox.
 Reflect current consensus on the team.
 Note that is *not* the same as
@@ -338,6 +376,19 @@ with an entrypoint-based API to set them up.
 This means easy integration with :code:`tox`,
 where often the only thing needed for another plugin is to
 add it to the list of dependencies.
+
+\begin{frame}[fragile]
+\frametitle{Linter plugin example}
+
+\begin{lstlisting}
+    entry_points={
+        'flake8.extension': [
+            'L = ebb_lint:EbbLint',
+        ],
+    }
+\end{lstlisting}
+\end{frame}
+
 
 This has been so popular,
 that many "linters" do not even bother with
@@ -361,6 +412,19 @@ that encodes those practices.
 \begin{frame}
 \frametitle{Ad-hoc programs}
 Just write a little script to check for copyright notices.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ad-hoc programs}
+
+\begin{lstlisting}
+with open(fullname) as fp:
+    header = fp.readline() + fp.readline()
+    if header != PROPER_HEADER:
+        errors += 1
+        print("Python file with no header:", fullname,
+              file=sys.stderr)
+\end{lstlisting}
 \end{frame}
 
 Sometimes the easiest thing is to just write a new utility.
